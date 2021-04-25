@@ -1,0 +1,25 @@
+Package: homebrew
+Title: Install and Manage Packages using 'Homebrew'
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Brian",
+           family = "Connelly",
+           role = c("aut", "cre"),
+           email = "bdc@bconnelly.net",
+	   comment = c(ORCID = "0000-0002-9948-0379"))
+Description: Manage packages on macOS and Linux machines using 'Homebrew' <https://brew.sh>.
+License: MIT + file LICENSE
+URL: https://github.com/briandconnelly/homebrew
+BugReports: https://github.com/briandconnelly/homebrew/issues
+Imports: 
+    assertthat,
+    glue,
+    processx,
+    rlang
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
