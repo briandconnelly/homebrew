@@ -16,7 +16,7 @@ brew_list <- function(formulae = TRUE, casks = TRUE) {
   )
 
   if (formulae) {
-    formulae <- homebrew:::brew_cmd_raw("list", args = c("--formulae", "--versions"), echo = FALSE)
+    formulae <- brew_cmd_raw("list", args = c("--formulae", "--versions"), echo = FALSE)
     formulae_df <- as.data.frame(do.call(rbind, strsplit(strsplit(formulae$stdout, "\n")[[1]], " ")))
     names(formulae_df) <- c("name", "version")
     formulae_df$type <- "formula"
@@ -29,7 +29,7 @@ brew_list <- function(formulae = TRUE, casks = TRUE) {
   }
 
   if (casks) {
-    casks <- homebrew:::brew_cmd_raw("list", args = c("--casks", "--versions"), echo = FALSE)
+    casks <- brew_cmd_raw("list", args = c("--casks", "--versions"), echo = FALSE)
     casks_df <- as.data.frame(do.call(rbind, strsplit(strsplit(casks$stdout, "\n")[[1]], " ")))
     names(casks_df) <- c("name", "version")
     casks_df$type <- "cask"
