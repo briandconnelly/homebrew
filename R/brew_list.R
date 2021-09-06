@@ -12,7 +12,9 @@
 brew_list <- function(formulae = TRUE, casks = TRUE) {
   assertthat::assert_that(
     assertthat::is.flag(formulae),
-    assertthat::is.flag(casks)
+    assertthat::noNA(formulae),
+    assertthat::is.flag(casks),
+    assertthat::noNA(casks)
   )
 
   if (formulae) {

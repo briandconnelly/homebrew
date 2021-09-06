@@ -11,7 +11,7 @@ brew_cmd_raw <- function(cmd,
   )
 
   if (nchar(brew_cmd) == 0 || !file.exists(brew_cmd)) {
-    rlang::abort(glue::glue("Could not find `brew` command '{brew_cmd}'"))
+    cli::cli_abort("Could not find {.code brew} command {.code {brew_cmd}}")
   }
 
   processx::run(
@@ -49,7 +49,7 @@ brew_cmd <- function(cmd,
   )
 
   if (nchar(brew_cmd) == 0 || !file.exists(brew_cmd)) {
-    rlang::abort(glue::glue("Could not find `brew` command '{brew_cmd}'"))
+    cli::cli_abort("Could not find {.code brew} command {.code {brew_cmd}}")
   }
 
   retval <- processx::run(

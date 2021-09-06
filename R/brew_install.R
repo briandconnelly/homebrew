@@ -22,6 +22,20 @@ brew_install <- function(x,
                          only_dependencies = FALSE,
                          keep_tmp = FALSE,
                          ...) {
+
+  assertthat::assert_that(
+    assertthat::is.flag(cask),
+    assertthat::noNA(cask),
+    assertthat::is.flag(force),
+    assertthat::noNA(force),
+    assertthat::is.flag(only_dependencies),
+    assertthat::noNA(only_dependencies),
+    assertthat::is.flag(keep_tmp),
+    assertthat::noNA(keep_tmp)
+  )
+
+  ellipsis::check_dots_used()
+
   args <- c()
 
   if (cask) args <- append(args, "--cask")

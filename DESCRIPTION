@@ -13,7 +13,8 @@ URL: https://github.com/briandconnelly/homebrew
 BugReports: https://github.com/briandconnelly/homebrew/issues
 Imports: 
     assertthat,
-    glue,
+    cli,
+    ellipsis,
     processx,
     rlang
 Suggests: 
