@@ -7,6 +7,11 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' library(homebrew)
+#'
+#' is_installed("unixodbc")
+#' }
 is_installed <- function(x, formulae = TRUE, casks = TRUE) {
   assertthat::assert_that(
     assertthat::is.flag(formulae),

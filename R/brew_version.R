@@ -16,7 +16,7 @@ brew_version <- function() {
 
   structure(
     list(
-      homebrew = strsplit(versions[[1]], " ")[[1]][[2]],
+      homebrew = package_version(strsplit(versions[[1]], " ")[[1]][[2]]),
       core = paste0(tail(strsplit(versions[[2]], " ")[[1]], -1), collapse = " "),
       cask = paste0(tail(strsplit(versions[[3]], " ")[[1]], -1), collapse = " ")
     )

@@ -12,3 +12,8 @@ brew_config()
 \description{
 Title
 }
+\examples{
+\dontrun{
+TODO
+}
+}

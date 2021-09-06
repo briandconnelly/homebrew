@@ -7,9 +7,9 @@
 brew_list(formulae = TRUE, casks = TRUE)
 }
 \arguments{
-\item{formulae}{Whether to search installed formulae (default: \code{TRUE})}
+\item{formulae}{Search installed formulae (default: \code{TRUE})}
 
-\item{casks}{Whether to search installed casks (default: \code{TRUE})}
+\item{casks}{Search installed casks (default: \code{TRUE})}
 }
 \value{
 
@@ -17,4 +17,9 @@ brew_list(formulae = TRUE, casks = TRUE)
 \description{
 \code{brew_list()} returns a data frame containing the names and versions of all
 installed formulae and casks.
+}
+\examples{
+\dontrun{
+TODO
+}
 }

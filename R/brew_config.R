@@ -4,6 +4,9 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' TODO
+#' }
 brew_config <- function() {
   rlang::warn("This command is not yet supported")
 

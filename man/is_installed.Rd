@@ -15,9 +15,9 @@ is_cask_installed(x)
 \arguments{
 \item{x}{Name(s) of formula or cask}
 
-\item{formulae}{Whether to search installed formulae (default: \code{TRUE})}
+\item{formulae}{Search installed formulae (default: \code{TRUE})}
 
-\item{casks}{Whether to search installed casks (default: \code{TRUE})}
+\item{casks}{Search installed casks (default: \code{TRUE})}
 }
 \value{
 
@@ -26,4 +26,11 @@ is_cask_installed(x)
 \code{is_formula_installed()} TODO
 
 \code{is_cask_installed()} TODO
+}
+\examples{
+\dontrun{
+library(homebrew)
+
+is_installed("unixodbc")
+}
 }

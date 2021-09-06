@@ -17,40 +17,15 @@ brew_cmd(
   ...
 )
 
-brew_cleanup(
-  args = character(),
-  brew_cmd = Sys.which("brew"),
-  echo = rlang::is_interactive(),
-  ...
-)
+brew_cleanup(args = character(), ...)
 
-brew_doctor(
-  args = character(),
-  brew_cmd = Sys.which("brew"),
-  echo = rlang::is_interactive(),
-  ...
-)
+brew_doctor(args = character(), ...)
 
-brew_reinstall(
-  args = character(),
-  brew_cmd = Sys.which("brew"),
-  echo = rlang::is_interactive(),
-  ...
-)
+brew_reinstall(args = character(), ...)
 
-brew_update(
-  args = character(),
-  brew_cmd = Sys.which("brew"),
-  echo = rlang::is_interactive(),
-  ...
-)
+brew_update(args = character(), ...)
 
-brew_upgrade(
-  args = character(),
-  brew_cmd = Sys.which("brew"),
-  echo = rlang::is_interactive(),
-  ...
-)
+brew_upgrade(args = character(), ...)
 }
 \arguments{
 \item{cmd}{The command to run (e.g., \code{install})}
@@ -59,7 +34,8 @@ brew_upgrade(
 
 \item{brew_cmd}{Optional: Location of \code{brew} command.}
 
-\item{echo}{Whether to print output and error messages to the screen. Defaults to \code{TRUE} for interactive sessions.}
+\item{echo}{Whether to print output and error messages to the screen.
+Defaults to \code{TRUE} for interactive sessions.}
 
 \item{...}{Additional arguments passed to \code{\link[processx:run]{processx::run()}}}
 }

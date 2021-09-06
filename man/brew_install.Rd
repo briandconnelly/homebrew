@@ -22,13 +22,17 @@ brew_install_cask(x, ...)
 \arguments{
 \item{x}{Name(s) of formula or cask}
 
-\item{cask}{If \code{TRUE}, \code{x} refers to a cask. If \code{FALSE} (default), \code{x} refers to a formula.}
+\item{cask}{If \code{TRUE}, \code{x} refers to a cask. If \code{FALSE} (default), \code{x} refers
+to a formula.}
 
-\item{force}{Install without checking for previous installations (default: \code{FALSE})}
+\item{force}{Do not check for previous installations
+(default: \code{FALSE})}
 
-\item{only_dependencies}{Install only dependencies and not the formula itself (default: \code{FALSE})}
+\item{only_dependencies}{Install only dependencies and not the formula itself
+(default: \code{FALSE})}
 
-\item{keep_tmp}{Do not delete temporary files created during installation (default: \code{FALSE})}
+\item{keep_tmp}{Do not delete temporary files created during installation
+(default: \code{FALSE})}
 
 \item{...}{Optional arguments for \code{\link[=brew_cmd]{brew_cmd()}}}
 }
@@ -40,7 +44,14 @@ Install a formula or cask
 }
 \examples{
 library(homebrew)
-
 \dontrun{
-brew_install("unixodbc")}
+brew_install("unixodbc")
+}
+\dontrun{
+# Install the Homebrew-compiled version of R
+brew_install_formula("r")
+}
+\dontrun{
+brew_install_cask("rstudio")
+}
 }
