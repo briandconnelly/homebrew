@@ -15,9 +15,9 @@ is_cask_installed(x)
 \arguments{
 \item{x}{Name(s) of formula or cask}
 
-\item{formulae}{Search installed formulae (default: \code{TRUE})}
+\item{formulae}{Include installed formulae (default: \code{TRUE})}
 
-\item{casks}{Search installed casks (default: \code{TRUE})}
+\item{casks}{Include installed casks (default: \code{TRUE})}
 }
 \value{
 

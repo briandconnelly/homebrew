@@ -17,7 +17,6 @@ brew_cmd_raw <- function(cmd,
   processx::run(
     command = brew_cmd,
     args = c(cmd, args),
-    error_on_status = FALSE,
     echo = echo,
     ...
   )
@@ -69,29 +68,39 @@ brew_cmd <- function(cmd,
 #' @rdname brew_cmd
 #' @description `brew_cleanup()` TODO
 #' @export
-brew_cleanup <- function(args = character(), ...) {
+brew_cleanup <- function(...) {
   brew_cmd(cmd = "cleanup", args = args, ...)
 }
 
 #' @rdname brew_cmd
 #' @description `brew_doctor()` TODO
 #' @export
-brew_doctor <- function(args = character(), ...) {
+brew_doctor <- function(...) {
   brew_cmd(cmd = "doctor", args = args, ...)
 }
 
 #' @rdname brew_cmd
-#' @description `brew_reinstall()` TODO
+#' @description `brew_reinstall()` uninstalls and then reinstalls a formula or
+#' cask using the same options it was originally installed with, plus any
+#' appended options specific to a formula.
 #' @export
-brew_reinstall <- function(args = character(), ...) {
-  brew_cmd(cmd = "reinstall", args = args, ...)
+brew_reinstall <- function(package, ...) {
+  brew_cmd(cmd = "reinstall", args = c(package), ...)
 }
 
 #' @rdname brew_cmd
-#' @description `brew_update()` fetches the newest version of Homebrew and all formulae
+#' @description `brew_uninstall()` uninstalls a formula or cask
 #' @export
-brew_update <- function(args = character(), ...) {
-  brew_cmd(cmd = "update", args = args, ...)
+brew_uninstall <- function(package, ...) {
+  brew_cmd(cmd = "uninstall", args = c(package), ...)
+}
+
+#' @rdname brew_cmd
+#' @description `brew_update()` fetches the newest version of Homebrew and all
+#' formulae
+#' @export
+brew_update <- function(...) {
+  brew_cmd(cmd = "update", ...)
 }
 
 #' @rdname brew_cmd
@@ -99,6 +108,24 @@ brew_update <- function(args = character(), ...) {
 #'   formulae using the same options they were originally installed with, plus
 #'   any appended brew formula options.
 #' @export
-brew_upgrade <- function(args = character(), ...) {
-  brew_cmd(cmd = "upgrade", args = args, ...)
+brew_upgrade <- function(...) {
+  brew_cmd(cmd = "upgrade", ...)
+}
+
+#' @rdname brew_cmd
+#' @description `brew_info()` displays brief information about your Homebrew
+#' installation or specific packages.
+#' @export
+#' @examples
+#' # Get info about Homebrew installation
+#' brew_info()
+#'
+#' # Get info about unixodbc package
+#' brew_info("unixodbc")
+brew_info <- function(package = NULL, ...) {
+  if (is.null(package)) {
+    brew_cmd(cmd = "info", ...)
+  } else {
+    brew_cmd("info", args = c(package), ...)
+  }
 }

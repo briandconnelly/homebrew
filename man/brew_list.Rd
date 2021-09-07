@@ -7,9 +7,9 @@
 brew_list(formulae = TRUE, casks = TRUE)
 }
 \arguments{
-\item{formulae}{Search installed formulae (default: \code{TRUE})}
+\item{formulae}{Include installed formulae (default: \code{TRUE})}
 
-\item{casks}{Search installed casks (default: \code{TRUE})}
+\item{casks}{Include installed casks (default: \code{TRUE})}
 }
 \value{
 

@@ -3,8 +3,8 @@
 #' `brew_list()` returns a data frame containing the names and versions of all
 #' installed formulae and casks.
 #'
-#' @param formulae Search installed formulae (default: `TRUE`)
-#' @param casks Search installed casks (default: `TRUE`)
+#' @param formulae Include installed formulae (default: `TRUE`)
+#' @param casks Include installed casks (default: `TRUE`)
 #' @return
 #' @export
 #'
