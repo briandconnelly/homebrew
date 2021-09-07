@@ -11,7 +11,8 @@
 #' (default: `FALSE`)
 #' @param ... Optional arguments for [`brew_cmd()`]
 #'
-#' @return A logical value indicating whether or not the installation was a success
+#' @return A logical value indicating whether or not the installation was a
+#' success
 #'
 #' @export
 #'

@@ -37,7 +37,8 @@ to a formula.}
 \item{...}{Optional arguments for \code{\link[=brew_cmd]{brew_cmd()}}}
 }
 \value{
-A logical value indicating whether or not the installation was a success
+A logical value indicating whether or not the installation was a
+success
 }
 \description{
 Install a formula or cask

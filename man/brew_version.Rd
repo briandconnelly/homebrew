@@ -7,11 +7,19 @@
 brew_version()
 }
 \value{
-A named list with items \code{homebrew}, \code{core}, and \code{cask}
+A named list containing the following items:
+
+\describe{
+\item{\code{homebrew}}{Version of Homebrew}
+\item{\code{core}}{String describing git commit info for
+\href{https://github.com/Homebrew/homebrew-core}{core formulae}}
+\item{\code{cask}}{String describing git commit info for
+\href{https://github.com/Homebrew/homebrew-cask}{casks}, if tapped}
+}
 }
 \description{
-\code{brew_version()} returns the version numbers of Homebrew,
-Homebrew/homebrew-core and Homebrew/homebrew-cask (if tapped)
+\code{brew_version()} returns version info about Homebrew, core formulae, and
+casks.
 }
 \examples{
 brew_version()
