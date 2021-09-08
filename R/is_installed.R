@@ -1,17 +1,16 @@
-#' Determine whether a formula or cask is installed
+#' Determine whether a package is installed
 #'
+#' @description `is_installed()` checks if a given package is installed either
+#' via formula or cask
 #' @inheritParams brew_install
 #' @inheritParams brew_list
 #'
-#' @return
+#' @return A logical value indicating whether or not the package is installed
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' library(homebrew)
-#'
+#' # Check whether or not unixodbc is installed
 #' is_installed("unixodbc")
-#' }
 is_installed <- function(package, formulae = TRUE, casks = TRUE) {
   assertthat::assert_that(
     assertthat::is.flag(formulae),
@@ -21,20 +20,4 @@ is_installed <- function(package, formulae = TRUE, casks = TRUE) {
   )
 
   package %in% brew_list(formulae = formulae, casks = casks)$name
-}
-
-
-#' @rdname is_installed
-#' @description `is_formula_installed()` TODO
-#' @export
-is_formula_installed <- function(package) {
-  is_installed(package, formulae = TRUE, casks = FALSE)
-}
-
-
-#' @rdname is_installed
-#' @description `is_cask_installed()` TODO
-#' @export
-is_cask_installed <- function(package) {
-  is_installed(package, formulae = FALSE, casks = TRUE)
 }

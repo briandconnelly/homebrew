@@ -2,15 +2,9 @@
 % Please edit documentation in R/is_installed.R
 \name{is_installed}
 \alias{is_installed}
-\alias{is_formula_installed}
-\alias{is_cask_installed}
-\title{Determine whether a formula or cask is installed}
+\title{Determine whether a package is installed}
 \usage{
 is_installed(package, formulae = TRUE, casks = TRUE)
-
-is_formula_installed(package)
-
-is_cask_installed(package)
 }
 \arguments{
 \item{package}{Name of formula or cask}
@@ -20,17 +14,13 @@ is_cask_installed(package)
 \item{casks}{Include installed casks (default: \code{TRUE})}
 }
 \value{
-
+A logical value indicating whether or not the package is installed
 }
 \description{
-\code{is_formula_installed()} TODO
-
-\code{is_cask_installed()} TODO
+\code{is_installed()} checks if a given package is installed either
+via formula or cask
 }
 \examples{
-\dontrun{
-library(homebrew)
-
+# Check whether or not unixodbc is installed
 is_installed("unixodbc")
-}
 }
