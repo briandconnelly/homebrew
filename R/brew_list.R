@@ -1,17 +1,13 @@
 #' List all installed formulae and casks
 #'
-#' `brew_list()` returns a data frame containing the names and versions of all
-#' installed formulae and casks.
-#'
 #' @param formulae Include installed formulae (default: `TRUE`)
 #' @param casks Include installed casks (default: `TRUE`)
-#' @return
+#' @return A data frame containing the `name` and `version` of each installed
+#' package and how it was installed (i.e., via formula or cask).
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' TODO
-#' }
+#' brew_list()
 brew_list <- function(formulae = TRUE, casks = TRUE) {
   assertthat::assert_that(
     assertthat::is.flag(formulae),
@@ -21,7 +17,11 @@ brew_list <- function(formulae = TRUE, casks = TRUE) {
   )
 
   if (formulae) {
-    formulae <- brew_cmd_raw("list", args = c("--formulae", "--versions"), echo = FALSE)
+    formulae <- brew_cmd_raw(
+      cmd = "list",
+      args = c("--formulae", "--versions"),
+      echo = FALSE
+    )
     formulae_df <- as.data.frame(do.call(rbind, strsplit(strsplit(formulae$stdout, "\n")[[1]], " ")))
     names(formulae_df) <- c("name", "version")
     formulae_df$type <- "formula"
@@ -34,7 +34,11 @@ brew_list <- function(formulae = TRUE, casks = TRUE) {
   }
 
   if (casks) {
-    casks <- brew_cmd_raw("list", args = c("--casks", "--versions"), echo = FALSE)
+    casks <- brew_cmd_raw(
+      cmd = "list",
+      args = c("--casks", "--versions"),
+      echo = FALSE
+    )
     casks_df <- as.data.frame(do.call(rbind, strsplit(strsplit(casks$stdout, "\n")[[1]], " ")))
     names(casks_df) <- c("name", "version")
     casks_df$type <- "cask"

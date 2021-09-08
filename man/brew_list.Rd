@@ -12,14 +12,12 @@ brew_list(formulae = TRUE, casks = TRUE)
 \item{casks}{Include installed casks (default: \code{TRUE})}
 }
 \value{
-
+A data frame containing the \code{name} and \code{version} of each installed
+package and how it was installed (i.e., via formula or cask).
 }
 \description{
-\code{brew_list()} returns a data frame containing the names and versions of all
-installed formulae and casks.
+List all installed formulae and casks
 }
 \examples{
-\dontrun{
-TODO
-}
+brew_list()
 }
