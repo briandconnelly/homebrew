@@ -6,14 +6,14 @@
 \alias{is_cask_installed}
 \title{Determine whether a formula or cask is installed}
 \usage{
-is_installed(x, formulae = TRUE, casks = TRUE)
+is_installed(package, formulae = TRUE, casks = TRUE)
 
-is_formula_installed(x)
+is_formula_installed(package)
 
-is_cask_installed(x)
+is_cask_installed(package)
 }
 \arguments{
-\item{x}{Name(s) of formula or cask}
+\item{package}{Name of formula or cask}
 
 \item{formulae}{Include installed formulae (default: \code{TRUE})}
 

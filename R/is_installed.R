@@ -12,7 +12,7 @@
 #'
 #' is_installed("unixodbc")
 #' }
-is_installed <- function(x, formulae = TRUE, casks = TRUE) {
+is_installed <- function(package, formulae = TRUE, casks = TRUE) {
   assertthat::assert_that(
     assertthat::is.flag(formulae),
     assertthat::noNA(formulae),
@@ -20,21 +20,21 @@ is_installed <- function(x, formulae = TRUE, casks = TRUE) {
     assertthat::noNA(casks)
   )
 
-  x %in% brew_list(formulae = formulae, casks = casks)$name
+  package %in% brew_list(formulae = formulae, casks = casks)$name
 }
 
 
 #' @rdname is_installed
 #' @description `is_formula_installed()` TODO
 #' @export
-is_formula_installed <- function(x) {
-  is_installed(x, formulae = TRUE, casks = FALSE)
+is_formula_installed <- function(package) {
+  is_installed(package, formulae = TRUE, casks = FALSE)
 }
 
 
 #' @rdname is_installed
 #' @description `is_cask_installed()` TODO
 #' @export
-is_cask_installed <- function(x) {
-  is_installed(x, formulae = FALSE, casks = TRUE)
+is_cask_installed <- function(package) {
+  is_installed(package, formulae = FALSE, casks = TRUE)
 }

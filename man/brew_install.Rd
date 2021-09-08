@@ -4,10 +4,12 @@
 \alias{brew_install}
 \alias{brew_install_formula}
 \alias{brew_install_cask}
+\alias{brew_reinstall}
+\alias{brew_uninstall}
 \title{Install a formula or cask}
 \usage{
 brew_install(
-  x,
+  package,
   cask = FALSE,
   force = FALSE,
   only_dependencies = FALSE,
@@ -15,15 +17,19 @@ brew_install(
   ...
 )
 
-brew_install_formula(x, ...)
+brew_install_formula(package, ...)
 
-brew_install_cask(x, ...)
+brew_install_cask(package, ...)
+
+brew_reinstall(package, ...)
+
+brew_uninstall(package, ...)
 }
 \arguments{
-\item{x}{Name(s) of formula or cask}
+\item{package}{Name of formula or cask}
 
-\item{cask}{If \code{TRUE}, \code{x} refers to a cask. If \code{FALSE} (default), \code{x} refers
-to a formula.}
+\item{cask}{If \code{TRUE}, \code{package} refers to a cask. If \code{FALSE} (default),
+\code{package} refers to a formula.}
 
 \item{force}{Do not check for previous installations
 (default: \code{FALSE})}
@@ -34,17 +40,22 @@ to a formula.}
 \item{keep_tmp}{Do not delete temporary files created during installation
 (default: \code{FALSE})}
 
-\item{...}{Optional arguments for \code{\link[=brew_cmd]{brew_cmd()}}}
+\item{...}{Optional arguments passed to \code{\link[=brew_cmd]{brew_cmd()}}}
 }
 \value{
 A logical value indicating whether or not the installation was a
 success
 }
 \description{
-Install a formula or cask
+\code{brew_install()} installs a formula or cask
+
+\code{brew_reinstall()} uninstalls and then reinstalls a formula or
+cask using the same options it was originally installed with, plus any
+appended options specific to a formula.
+
+\code{brew_uninstall()} uninstalls a formula or cask
 }
 \examples{
-library(homebrew)
 \dontrun{
 brew_install("unixodbc")
 }
@@ -54,5 +65,11 @@ brew_install_formula("r")
 }
 \dontrun{
 brew_install_cask("rstudio")
+}
+\dontrun{
+brew_reinstall("unixodbc")
+}
+\dontrun{
+brew_uninstall("unixodbc")
 }
 }

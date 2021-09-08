@@ -2,13 +2,6 @@
 % Please edit documentation in R/brew_cmd.R
 \name{brew_cmd}
 \alias{brew_cmd}
-\alias{brew_cleanup}
-\alias{brew_doctor}
-\alias{brew_reinstall}
-\alias{brew_uninstall}
-\alias{brew_update}
-\alias{brew_upgrade}
-\alias{brew_info}
 \title{Run a homebrew command}
 \usage{
 brew_cmd(
@@ -18,20 +11,6 @@ brew_cmd(
   echo = rlang::is_interactive(),
   ...
 )
-
-brew_cleanup(...)
-
-brew_doctor(...)
-
-brew_reinstall(package, ...)
-
-brew_uninstall(package, ...)
-
-brew_update(...)
-
-brew_upgrade(...)
-
-brew_info(package = NULL, ...)
 }
 \arguments{
 \item{cmd}{The command to run (e.g., \code{install})}
@@ -49,31 +28,8 @@ Defaults to \code{TRUE} for interactive sessions.}
 A logical value indicating whether the command was successful or not
 }
 \description{
-\code{brew_cleanup()} TODO
-
-\code{brew_doctor()} TODO
-
-\code{brew_reinstall()} uninstalls and then reinstalls a formula or
-cask using the same options it was originally installed with, plus any
-appended options specific to a formula.
-
-\code{brew_uninstall()} uninstalls a formula or cask
-
-\code{brew_update()} fetches the newest version of Homebrew and all
-formulae
-
-\code{brew_upgrade()} upgrades outdated casks and outdated, unpinned
-formulae using the same options they were originally installed with, plus
-any appended brew formula options.
-
-\code{brew_info()} displays brief information about your Homebrew
-installation or specific packages.
+Run a homebrew command
 }
 \examples{
 # TODO
-# Get info about Homebrew installation
-brew_info()
-
-# Get info about unixodbc package
-brew_info("unixodbc")
 }
