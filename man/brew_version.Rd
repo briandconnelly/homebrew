@@ -4,7 +4,7 @@
 \alias{brew_version}
 \title{Get Homebrew version information}
 \usage{
-brew_version()
+brew_version(...)
 }
 \value{
 A named list containing the following items:

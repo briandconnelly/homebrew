@@ -8,7 +8,7 @@
 #'
 #' @examples
 #' brew_list()
-brew_list <- function(formulae = TRUE, casks = TRUE) {
+brew_list <- function(formulae = TRUE, casks = TRUE, ...) {
   assertthat::assert_that(
     assertthat::is.flag(formulae),
     assertthat::noNA(formulae),
@@ -20,7 +20,8 @@ brew_list <- function(formulae = TRUE, casks = TRUE) {
     formulae <- brew_cmd_raw(
       cmd = "list",
       args = c("--formulae", "--versions"),
-      echo = FALSE
+      echo = FALSE,
+      ...
     )
     formulae_df <- as.data.frame(do.call(rbind, strsplit(strsplit(formulae$stdout, "\n")[[1]], " ")))
     names(formulae_df) <- c("name", "version")
@@ -37,7 +38,8 @@ brew_list <- function(formulae = TRUE, casks = TRUE) {
     casks <- brew_cmd_raw(
       cmd = "list",
       args = c("--casks", "--versions"),
-      echo = FALSE
+      echo = FALSE,
+      ...
     )
     casks_df <- as.data.frame(do.call(rbind, strsplit(strsplit(casks$stdout, "\n")[[1]], " ")))
     names(casks_df) <- c("name", "version")

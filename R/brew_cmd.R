@@ -10,9 +10,7 @@ brew_cmd_raw <- function(cmd,
     assertthat::is.string(brew_cmd)
   )
 
-  if (nchar(brew_cmd) == 0 || !file.exists(brew_cmd)) {
-    cli::cli_abort("Could not find {.code brew} command {.path {brew_cmd}}")
-  }
+  check_brew_command(brew_cmd)
 
   processx::run(
     command = brew_cmd,
@@ -50,9 +48,7 @@ brew_cmd <- function(cmd,
     assertthat::is.string(brew_cmd)
   )
 
-  if (nchar(brew_cmd) == 0 || !file.exists(brew_cmd)) {
-    cli::cli_abort("Could not find {.code brew} command {.path {brew_cmd}}")
-  }
+  check_brew_command(brew_cmd)
 
   retval <- processx::run(
     command = brew_cmd,
@@ -63,4 +59,12 @@ brew_cmd <- function(cmd,
   )
 
   invisible(retval$status == 0)
+}
+
+check_brew_command <- function(brew_cmd) {
+  if (nchar(brew_cmd) == 0) {
+    cli::cli_abort("Could not find {.code brew} command")
+  } else if (!file.exists(brew_cmd)) {
+    cli::cli_abort("Could not find {.code brew} command: {.path {brew_cmd}} does not exist")
+  }
 }

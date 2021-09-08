@@ -4,7 +4,7 @@
 \alias{brew_list}
 \title{List all installed formulae and casks}
 \usage{
-brew_list(formulae = TRUE, casks = TRUE)
+brew_list(formulae = TRUE, casks = TRUE, ...)
 }
 \arguments{
 \item{formulae}{Include installed formulae (default: \code{TRUE})}
