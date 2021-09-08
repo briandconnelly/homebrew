@@ -18,7 +18,7 @@
 #' @examples
 #' brew_version()
 brew_version <- function(...) {
-  output <- brew_cmd_raw(cmd = "--version", echo = FALSE, ...)$stdout
+  output <- brew_cmd(cmd = "--version", echo = FALSE, ...)$stdout
   versions <- strsplit(output, "\n")[[1]]
 
   structure(

@@ -3,7 +3,7 @@
 #' @param ... Additional parameters passed to [brew_cmd]
 #' @export
 brew_cleanup <- function(...) {
-  brew_cmd(cmd = "cleanup", args = args, ...)
+  invisible(brew_cmd(cmd = "cleanup", args = args, ...)$status == 0)
 }
 
 
@@ -12,7 +12,7 @@ brew_cleanup <- function(...) {
 #' @inheritDotParams brew_cleanup
 #' @export
 brew_doctor <- function(...) {
-  brew_cmd(cmd = "doctor", args = args, ...)
+  invisible(brew_cmd(cmd = "doctor", args = args, ...)$status == 0)
 }
 
 
@@ -22,7 +22,7 @@ brew_doctor <- function(...) {
 #' @inheritDotParams brew_cleanup
 #' @export
 brew_update <- function(...) {
-  brew_cmd(cmd = "update", ...)
+  invisible(brew_cmd(cmd = "update", ...)$status == 0)
 }
 
 
@@ -33,7 +33,7 @@ brew_update <- function(...) {
 #' @inheritDotParams brew_cleanup
 #' @export
 brew_upgrade <- function(...) {
-  brew_cmd(cmd = "upgrade", ...)
+  invisible(brew_cmd(cmd = "upgrade", ...)$status == 0)
 }
 
 
@@ -52,8 +52,10 @@ brew_upgrade <- function(...) {
 #' brew_info("unixodbc")
 brew_info <- function(package = NULL, ...) {
   if (is.null(package)) {
-    brew_cmd(cmd = "info", ...)
+    retval <- brew_cmd(cmd = "info", ...)
   } else {
-    brew_cmd("info", args = c(package), ...)
+    retval <- brew_cmd("info", args = c(package), ...)
   }
+
+  invisible(retval$status == 0)
 }

@@ -19,7 +19,7 @@ brew_list <- function(formulae = TRUE, casks = TRUE, ...) {
   )
 
   if (formulae) {
-    formulae <- brew_cmd_raw(
+    formulae <- brew_cmd(
       cmd = "list",
       args = c("--formulae", "--versions"),
       echo = FALSE,
@@ -37,7 +37,7 @@ brew_list <- function(formulae = TRUE, casks = TRUE, ...) {
   }
 
   if (casks) {
-    casks <- brew_cmd_raw(
+    casks <- brew_cmd(
       cmd = "list",
       args = c("--casks", "--versions"),
       echo = FALSE,

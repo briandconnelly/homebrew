@@ -51,11 +51,7 @@ brew_install <- function(package,
 
   args <- append(args, package)
 
-  brew_cmd(
-    cmd = "install",
-    args = args,
-    ...
-  )
+  invisible(brew_cmd(cmd = "install", args = args, ...)$status == 0)
 }
 
 
@@ -93,7 +89,7 @@ brew_install_cask <- function(package, ...) {
 #' brew_reinstall("unixodbc")
 #' }
 brew_reinstall <- function(package, ...) {
-  brew_cmd(cmd = "reinstall", args = c(package), ...)
+  invisible(brew_cmd(cmd = "reinstall", args = c(package), ...)$status == 0)
 }
 
 
@@ -105,5 +101,5 @@ brew_reinstall <- function(package, ...) {
 #' brew_uninstall("unixodbc")
 #' }
 brew_uninstall <- function(package, ...) {
-  brew_cmd(cmd = "uninstall", args = c(package), ...)
+  invisible(brew_cmd(cmd = "uninstall", args = c(package), ...)$status == 0)
 }

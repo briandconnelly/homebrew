@@ -1,25 +1,3 @@
-brew_cmd_raw <- function(cmd,
-                         args = character(),
-                         brew_cmd = Sys.which("brew"),
-                         echo = rlang::is_interactive(),
-                         ...) {
-  assertthat::assert_that(
-    assertthat::is.string(cmd),
-    is.vector(args),
-    is.character(args),
-    assertthat::is.string(brew_cmd)
-  )
-
-  check_brew_command(brew_cmd)
-
-  processx::run(
-    command = brew_cmd,
-    args = c(cmd, args),
-    echo = echo,
-    ...
-  )
-}
-
 #' Run a homebrew command
 #'
 #' @param cmd The command to run (e.g., `install`)
@@ -50,15 +28,12 @@ brew_cmd <- function(cmd,
 
   check_brew_command(brew_cmd)
 
-  retval <- processx::run(
+  processx::run(
     command = brew_cmd,
     args = c(cmd, args),
-    error_on_status = TRUE,
     echo = echo,
     ...
   )
-
-  invisible(retval$status == 0)
 }
 
 check_brew_command <- function(brew_cmd) {
