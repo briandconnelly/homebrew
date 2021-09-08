@@ -2,22 +2,35 @@
 % Please edit documentation in R/brew_list.R
 \name{brew_list}
 \alias{brew_list}
-\title{List all installed formulae and casks}
+\alias{is_installed}
+\title{Check installed formulae and casks}
 \usage{
 brew_list(formulae = TRUE, casks = TRUE, ...)
+
+is_installed(package, formulae = TRUE, casks = TRUE, ...)
 }
 \arguments{
 \item{formulae}{Include installed formulae (default: \code{TRUE})}
 
 \item{casks}{Include installed casks (default: \code{TRUE})}
+
+\item{...}{Optional arguments passed to \code{\link[=brew_cmd]{brew_cmd()}}}
+
+\item{package}{Name of formula or cask}
 }
 \value{
 A data frame containing the \code{name} and \code{version} of each installed
 package and how it was installed (i.e., via formula or cask).
+
+A logical value indicating whether or not the package is installed
 }
 \description{
-List all installed formulae and casks
+\code{brew_list()} lists all installed packages
+
+\code{is_installed()} checks if a given package is installed
 }
 \examples{
 brew_list()
+# Check whether or not unixodbc is installed
+is_installed("unixodbc")
 }

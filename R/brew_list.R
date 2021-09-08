@@ -1,4 +1,6 @@
-#' List all installed formulae and casks
+#' Check installed formulae and casks
+#'
+#' @description `brew_list()` lists all installed packages
 #'
 #' @param formulae Include installed formulae (default: `TRUE`)
 #' @param casks Include installed casks (default: `TRUE`)
@@ -60,4 +62,28 @@ brew_list <- function(formulae = TRUE, casks = TRUE, ...) {
   } else {
     everything
   }
+}
+
+
+#' @rdname brew_list
+#'
+#' @description `is_installed()` checks if a given package is installed
+#' @inheritParams brew_install
+#' @inheritParams brew_list
+#'
+#' @return A logical value indicating whether or not the package is installed
+#' @export
+#'
+#' @examples
+#' # Check whether or not unixodbc is installed
+#' is_installed("unixodbc")
+is_installed <- function(package, formulae = TRUE, casks = TRUE, ...) {
+  assertthat::assert_that(
+    assertthat::is.flag(formulae),
+    assertthat::noNA(formulae),
+    assertthat::is.flag(casks),
+    assertthat::noNA(casks)
+  )
+
+  package %in% brew_list(formulae = formulae, casks = casks, ...)$name
 }
