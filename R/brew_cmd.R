@@ -7,11 +7,19 @@
 #' Defaults to `TRUE` for interactive sessions.
 #' @param ... Additional arguments passed to [`processx::run()`]
 #'
-#' @return A logical value indicating whether the command was successful or not
+#' @return A list with components:
+#' \describe{
+#'   \item{`status`}{The exit status of the process. If this is `NA`, then the process was killed and had no exit status.}
+#'   \item{`stdout`}{The standard output of the command, in a character scalar.}
+#'   \item{`stderr`}{The standard error of the command, in a character scalar.}
+#'   \item{`timeout`}{Whether the process was killed because of a timeout.}
+#' }
 #' @export
 #'
 #' @examples
-#' # TODO
+#' \dontrun{
+#' brew_cmd("install", "unixodbc")
+#' }
 brew_cmd <- function(cmd,
                      args = character(),
                      brew_cmd = Sys.which("brew"),
@@ -23,7 +31,9 @@ brew_cmd <- function(cmd,
     assertthat::is.string(cmd),
     is.vector(args),
     is.character(args),
-    assertthat::is.string(brew_cmd)
+    assertthat::is.string(brew_cmd),
+    assertthat::is.flag(echo),
+    assertthat::noNA(echo)
   )
 
   check_brew_command(brew_cmd)

@@ -25,11 +25,19 @@ Defaults to \code{TRUE} for interactive sessions.}
 \item{...}{Additional arguments passed to \code{\link[processx:run]{processx::run()}}}
 }
 \value{
-A logical value indicating whether the command was successful or not
+A list with components:
+\describe{
+\item{\code{status}}{The exit status of the process. If this is \code{NA}, then the process was killed and had no exit status.}
+\item{\code{stdout}}{The standard output of the command, in a character scalar.}
+\item{\code{stderr}}{The standard error of the command, in a character scalar.}
+\item{\code{timeout}}{Whether the process was killed because of a timeout.}
+}
 }
 \description{
 Run a homebrew command
 }
 \examples{
-# TODO
+\dontrun{
+brew_cmd("install", "unixodbc")
+}
 }

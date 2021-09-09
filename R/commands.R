@@ -51,11 +51,11 @@ brew_upgrade <- function(...) {
 #' # Get info about unixodbc package
 #' brew_info("unixodbc")
 brew_info <- function(package = NULL, ...) {
-  if (is.null(package)) {
-    retval <- brew_cmd(cmd = "info", ...)
-  } else {
-    retval <- brew_cmd("info", args = c(package), ...)
-  }
+  retval <- ifelse(
+    is.null(package),
+    brew_cmd(cmd = "info", ...),
+    brew_cmd("info", args = c(package), ...)
+  )
 
   invisible(retval$status == 0)
 }
