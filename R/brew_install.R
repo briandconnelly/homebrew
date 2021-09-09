@@ -2,7 +2,7 @@
 #'
 #' @description `brew_install()` installs a formula or cask
 #'
-#' @param package Name of package (formula or cask)
+#' @param package Name of package(s) (formula or cask)
 #' @param cask If `TRUE`, `package` refers to a cask. If `FALSE` (default),
 #' `package` refers to a formula.
 #' @param force Do not check for previous installations
@@ -29,7 +29,6 @@ brew_install <- function(package,
                          keep_tmp = FALSE,
                          ...) {
   assertthat::assert_that(
-    assertthat::is.string(package),
     assertthat::is.flag(cask),
     assertthat::noNA(cask),
     assertthat::is.flag(force),
