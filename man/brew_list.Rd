@@ -14,7 +14,15 @@ is_installed(package, formulae = TRUE, casks = TRUE, ...)
 
 \item{casks}{Include installed casks (default: \code{TRUE})}
 
-\item{...}{Optional arguments passed to \code{\link[=brew_cmd]{brew_cmd()}}}
+\item{...}{
+  Arguments passed on to \code{\link[=brew_cmd]{brew_cmd}}
+  \describe{
+    \item{\code{cmd}}{The command to run (e.g., \code{install})}
+    \item{\code{args}}{Additional arguments for the command}
+    \item{\code{brew_cmd}}{Optional: Location of \code{brew} command.}
+    \item{\code{echo}}{Whether to print output and error messages to the screen.
+Defaults to \code{TRUE} for interactive sessions.}
+  }}
 
 \item{package}{Name of formula or cask}
 }

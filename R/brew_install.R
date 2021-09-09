@@ -11,7 +11,7 @@
 #' (default: `FALSE`)
 #' @param keep_tmp Do not delete temporary files created during installation
 #' (default: `FALSE`)
-#' @param ... Optional arguments passed to [`brew_cmd()`]
+#' @inheritDotParams brew_cmd
 #'
 #' @return A logical value indicating whether or not the installation was a
 #' success

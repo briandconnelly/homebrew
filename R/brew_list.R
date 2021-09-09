@@ -4,6 +4,7 @@
 #'
 #' @param formulae Include installed formulae (default: `TRUE`)
 #' @param casks Include installed casks (default: `TRUE`)
+#' @inheritDotParams brew_cmd
 #' @return A data frame containing the `name` and `version` of each installed
 #' package and how it was installed (i.e., via formula or cask).
 #' @export
