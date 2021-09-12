@@ -25,6 +25,7 @@ brew_cmd <- function(cmd,
                      brew_cmd = Sys.which("brew"),
                      echo = rlang::is_interactive(),
                      ...) {
+  check_brew_command(brew_cmd)
   ellipsis::check_dots_used()
 
   assertthat::assert_that(
@@ -35,8 +36,6 @@ brew_cmd <- function(cmd,
     assertthat::is.flag(echo),
     assertthat::noNA(echo)
   )
-
-  check_brew_command(brew_cmd)
 
   processx::run(
     command = brew_cmd,
@@ -52,4 +51,23 @@ check_brew_command <- function(brew_cmd) {
   } else if (!file.exists(brew_cmd)) {
     cli::cli_abort("Could not find {.code brew} command: {.path {brew_cmd}} does not exist")
   }
+}
+
+
+homebrew_commands <- function() {
+  output <- brew_cmd(
+    cmd = "commands",
+    args = c("--quiet", "--include_aliases"),
+    echo = FALSE
+  )$stdout
+  strsplit(output, "\n")[[1]]
+}
+
+
+is_homebrew_command <- function(cmd) {
+  cmd %in% homebrew_commands()
+}
+
+assertthat::on_failure(is_homebrew_command) <- function(call, env) {
+  paste(deparse(call[[2]]), "is not a valud Homebrew command")
 }
