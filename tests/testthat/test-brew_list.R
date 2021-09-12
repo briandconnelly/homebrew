@@ -1,0 +1,18 @@
+test_that("brew_list validates arguments correctly", {
+  expect_error(brew_list(formulae = 1))
+  expect_error(brew_list(casks = 1))
+  expect_error(brew_list(formulae = "yes"))
+  expect_error(brew_list(casks = "nope"))
+  expect_error(brew_list(formulae = NA))
+  expect_error(brew_list(casks = NA))
+})
+
+test_that("brew_list returns the expected tibble", {
+  valid_result <- brew_list(formulae = TRUE, casks = TRUE)
+  expect_true(is.data.frame(valid_result))
+  expect_equal(colnames(valid_result), c("name", "version", "type"))
+  expect_true(is.character(valid_result$name))
+  expect_true(is.character(valid_result$version))
+  expect_true(is.factor(valid_result$type))
+  expect_equal(levels(valid_result$type), c("formula", "cask"))
+})
