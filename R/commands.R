@@ -48,26 +48,3 @@ brew_outdated <- function(...) {
   strsplit(result$stdout, "\n")[[1]]
 }
 
-
-#' @title Display information about TODO
-#' @description `brew_info()` displays brief information about your Homebrew
-#' installation or specific packages.
-#' @param package Name of formula or cask. If one is not given, info about your
-#' homebrew environment is shown.
-#' @inheritDotParams brew_cmd
-#' @export
-#' @examples
-#' # Get info about Homebrew installation
-#' brew_info()
-#'
-#' # Get info about unixodbc package
-#' brew_info("unixodbc")
-brew_info <- function(package = NULL, ...) {
-  retval <- ifelse(
-    is.null(package),
-    brew_cmd(cmd = "info", ...),
-    brew_cmd("info", args = c(package), ...)
-  )
-
-  invisible(retval$status == 0)
-}
