@@ -21,6 +21,10 @@ A named list containing the following items:
 \code{brew_version()} returns version info about Homebrew, core formulae, and
 casks.
 }
+\note{
+Version information for installed packages can be retrieved with
+\code{\link[=brew_list]{brew_list()}}
+}
 \examples{
 brew_version()
 }
