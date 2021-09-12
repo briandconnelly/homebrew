@@ -30,6 +30,7 @@ brew_cmd <- function(cmd,
 
   assertthat::assert_that(
     assertthat::is.string(cmd),
+    assertthat::noNA(cmd),
     is.vector(args),
     is.character(args),
     assertthat::is.string(brew_cmd),
@@ -67,6 +68,7 @@ homebrew_commands <- function() {
 is_homebrew_command <- function(cmd) {
   cmd %in% homebrew_commands()
 }
+
 
 assertthat::on_failure(is_homebrew_command) <- function(call, env) {
   paste(deparse(call[[2]]), "is not a valud Homebrew command")
