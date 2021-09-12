@@ -47,4 +47,3 @@ brew_outdated <- function(...) {
   result <- brew_cmd(cmd = "outdated", echo = FALSE, ...)
   strsplit(result$stdout, "\n")[[1]]
 }
-

@@ -14,7 +14,11 @@
 #' brew_analytics("unixodbc", days = 90)
 brew_analytics <- function(package,
                            days = 30,
-                           category = c("install", "install-on-request", "build-error"),
+                           category = c(
+                             "install",
+                             "install-on-request",
+                             "build-error"
+                           ),
                            ...) {
   category <- rlang::arg_match(category)
   assertthat::assert_that(
