@@ -26,7 +26,9 @@ brew_list <- function(formulae = TRUE, casks = TRUE, ...) {
       echo = FALSE,
       ...
     )
-    formulae_df <- as.data.frame(do.call(rbind, strsplit(strsplit(formulae$stdout, "\n")[[1]], " ")))
+    formulae_df <- as.data.frame(
+      do.call(rbind, strsplit(strsplit(formulae$stdout, "\n")[[1]], " "))
+    )
     names(formulae_df) <- c("name", "version")
     formulae_df$type <- "formula"
   } else {
@@ -44,7 +46,9 @@ brew_list <- function(formulae = TRUE, casks = TRUE, ...) {
       echo = FALSE,
       ...
     )
-    casks_df <- as.data.frame(do.call(rbind, strsplit(strsplit(casks$stdout, "\n")[[1]], " ")))
+    casks_df <- as.data.frame(
+      do.call(rbind, strsplit(strsplit(casks$stdout, "\n")[[1]], " "))
+    )
     names(casks_df) <- c("name", "version")
     casks_df$type <- "cask"
   } else {
