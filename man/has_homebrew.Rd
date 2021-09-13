@@ -19,5 +19,5 @@ exists in the system's path.
 has_homebrew()
 }
 \seealso{
-\link{https://brew.sh} for installation instructions
+\url{https://brew.sh} for installation instructions
 }

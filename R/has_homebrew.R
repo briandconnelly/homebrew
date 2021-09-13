@@ -5,7 +5,7 @@
 #' `brew` command to be specified, this function only checks whether `brew`
 #' exists in the system's path.
 #'
-#' @seealso [https://brew.sh] for installation instructions
+#' @seealso <https://brew.sh> for installation instructions
 #'
 #' @return A logical value indicating whether Homebrew could be found
 #' @export

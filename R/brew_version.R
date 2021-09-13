@@ -3,6 +3,7 @@
 #' `brew_version()` returns version info about Homebrew, core formulae, and
 #' casks.
 #'
+#' @inheritDotParams brew_cmd
 #' @note Version information for installed packages can be retrieved with
 #' [brew_list()]
 #' @return A named list containing the following items:
