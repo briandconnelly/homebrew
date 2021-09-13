@@ -56,4 +56,7 @@ test_that("command helper functions work", {
   for (cmd in c("brew", "zanzibar", "---env")) {
     expect_false(is_homebrew_command(cmd))
   }
+
+  expect_error(check_brew_command(brew_cmd = ""))
+  expect_error(check_brew_command(brew_cmd = "/really/bad/path/brew"))
 })

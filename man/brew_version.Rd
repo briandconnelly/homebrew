@@ -10,7 +10,7 @@ brew_version(...)
 A named list containing the following items:
 
 \describe{
-\item{\code{homebrew}}{Version of Homebrew}
+\item{\code{homebrew}}{String describing the version of Homebrew}
 \item{\code{core}}{String describing git commit info for
 \href{https://github.com/Homebrew/homebrew-core}{core formulae}}
 \item{\code{cask}}{String describing git commit info for

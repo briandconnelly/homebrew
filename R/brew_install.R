@@ -29,6 +29,9 @@ brew_install <- function(package,
                          keep_tmp = FALSE,
                          ...) {
   assertthat::assert_that(
+    is.character(package),
+    all(nchar(package) > 0),
+    length(package) > 0,
     assertthat::is.flag(cask),
     assertthat::noNA(cask),
     assertthat::is.flag(force),
@@ -38,8 +41,6 @@ brew_install <- function(package,
     assertthat::is.flag(keep_tmp),
     assertthat::noNA(keep_tmp)
   )
-
-  ellipsis::check_dots_used()
 
   args <- c()
 

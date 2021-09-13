@@ -62,11 +62,7 @@ brew_list <- function(formulae = TRUE, casks = TRUE, ...) {
   everything <- rbind(formulae_df, casks_df)
   everything$type <- factor(everything$type, levels = c("formula", "cask"))
 
-  if (rlang::is_installed("tibble")) {
-    tibble::as_tibble(everything)
-  } else {
-    everything
-  }
+  everything
 }
 
 
@@ -84,6 +80,9 @@ brew_list <- function(formulae = TRUE, casks = TRUE, ...) {
 #' is_installed("unixodbc")
 is_installed <- function(package, formulae = TRUE, casks = TRUE, ...) {
   assertthat::assert_that(
+    is.character(package),
+    all(nchar(package) > 0),
+    length(package) > 0,
     assertthat::is.flag(formulae),
     assertthat::noNA(formulae),
     assertthat::is.flag(casks),

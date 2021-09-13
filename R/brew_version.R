@@ -8,7 +8,7 @@
 #' @return A named list containing the following items:
 #'
 #' \describe{
-#'   \item{`homebrew`}{Version of Homebrew}
+#'   \item{`homebrew`}{String describing the version of Homebrew}
 #'     \item{`core`}{String describing git commit info for
 #'     [core formulae](https://github.com/Homebrew/homebrew-core)}
 #'   \item{`cask`}{String describing git commit info for
@@ -25,7 +25,7 @@ brew_version <- function(...) {
 
   structure(
     list(
-      homebrew = package_version(strsplit(versions[[1]], " ")[[1]][[2]]),
+      homebrew = strsplit(versions[[1]], " ")[[1]][[2]],
       core = versions[[2]],
       cask = versions[[3]]
     )

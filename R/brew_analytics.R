@@ -22,6 +22,9 @@ brew_analytics <- function(package,
                            ...) {
   category <- rlang::arg_match(category)
   assertthat::assert_that(
+    is.character(package),
+    all(nchar(package) > 0),
+    length(package) > 0,
     assertthat::is.number(days),
     days %in% c(30, 90, 365),
     assertthat::is.string(category),
