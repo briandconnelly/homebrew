@@ -13,5 +13,5 @@
 #' @examples
 #' has_homebrew()
 has_homebrew <- function() {
-  fs::file_exists(find_brew_command())
+  unname(fs::file_exists(find_brew_command()))
 }

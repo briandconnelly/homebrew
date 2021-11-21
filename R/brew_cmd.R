@@ -43,7 +43,7 @@ brew_cmd <- function(cmd,
 }
 
 find_brew_command <- function() {
-  Sys.which("brew")
+  unname(Sys.which("brew"))
 }
 
 check_brew_command <- function(brew_cmd) {
