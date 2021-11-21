@@ -24,7 +24,7 @@
 brew_cmd <- function(cmd,
                      args = character(),
                      brew_cmd = find_brew_command(),
-                     echo = rlang::is_interactive(),
+                     echo = is_interactive(),
                      ...) {
   checkmate::assert_string(cmd, na.ok = FALSE)
   checkmate::assert_character(args, min.len = 0)

@@ -20,7 +20,7 @@ brew_analytics <- function(package,
                              "build-error"
                            ),
                            ...) {
-  category <- rlang::arg_match(category)
+  category <- arg_match(category)
 
   checkmate::assert_character(
     package,

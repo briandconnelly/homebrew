@@ -8,7 +8,7 @@ brew_cmd(
   cmd,
   args = character(),
   brew_cmd = find_brew_command(),
-  echo = rlang::is_interactive(),
+  echo = is_interactive(),
   ...
 )
 }
