@@ -47,13 +47,11 @@ test_that("brew_list returns the expected tibble", {
 
 valid_is_installed <- function(package = "pwgen",
                                formulae = TRUE,
-                               casks = TRUE,
-                               ...) {
+                               casks = TRUE) {
   is_installed(
     package = package,
     formulae = formulae,
-    casks = casks,
-    ...
+    casks = casks
   )
 }
 
