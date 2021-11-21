@@ -6,7 +6,7 @@
 \alias{homebrew-package}
 \title{homebrew: Install and Manage Packages using 'Homebrew'}
 \description{
-Manage packages on macOS and Linux machines using 'Homebrew' <https://brew.sh>.
+Manage packages on macOS and Linux machines using the 'Homebrew' package management system <https://brew.sh>.
 }
 \seealso{
 Useful links:

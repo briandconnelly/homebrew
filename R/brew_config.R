@@ -1,17 +1,15 @@
-#' Title
+#' Show Homebrew and System Configuration
+#'
+#' `brew_config()` returns important information about your Homebrew
+#' installation and other related system information.
 #'
 #' @return A string containing the raw text output from `brew config`
 #' @export
 #'
 #' @examples
 #' \dontrun{
-#' TODO
+#' brew_config()
 #' }
 brew_config <- function() {
-  warn("This command is not yet supported")
-
-  # TODO: figure this out. The format is all over the place
-  retval <- brew_cmd(cmd = "config")$stdout
-
-  retval
+  brew_cmd(cmd = "config")$stdout
 }

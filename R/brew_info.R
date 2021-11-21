@@ -8,8 +8,10 @@
 #' @note System and package analytics can be retrieved with [`brew_analytics`]
 #' @export
 #' @examples
+#' \dontrun{
 #' # Get info about unixodbc package
 #' brew_info("unixodbc")
+#' }
 brew_info <- function(package, ...) {
   checkmate::assert_character(
     package,

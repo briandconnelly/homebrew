@@ -2,7 +2,7 @@
 % Please edit documentation in R/commands.R
 \name{brew_cleanup}
 \alias{brew_cleanup}
-\title{TODO}
+\title{Clean up Homebrew environment}
 \usage{
 brew_cleanup(...)
 }
@@ -18,5 +18,6 @@ Defaults to \code{TRUE} for interactive sessions.}
   }}
 }
 \description{
-\code{brew_cleanup()} TODO
+\code{brew_cleanup()} removes stale lock files and outdated downloads
+for all formulae and casks, and removes old versions of installed formulae.
 }

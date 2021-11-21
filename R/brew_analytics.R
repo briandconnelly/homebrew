@@ -10,8 +10,10 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' # Retrieve 90-day install data for unixodbc
 #' brew_analytics("unixodbc", days = 90)
+#' }
 brew_analytics <- function(package,
                            days = 30,
                            category = c(

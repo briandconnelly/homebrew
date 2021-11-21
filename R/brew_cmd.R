@@ -1,5 +1,9 @@
 #' Run a homebrew command
 #'
+#' `brew_cmd()` runs a given Homebrew command.
+#' For more information about which additional arguments are supported for a
+#' command, see [brew_help()].
+#'
 #' @param cmd The command to run (e.g., `install`)
 #' @param args Additional arguments for the command
 #' @param brew_cmd Optional: Location of `brew` command.

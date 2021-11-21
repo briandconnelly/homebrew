@@ -2,7 +2,7 @@
 % Please edit documentation in R/commands.R
 \name{brew_doctor}
 \alias{brew_doctor}
-\title{TODO}
+\title{Check for potential problems}
 \usage{
 brew_doctor(...)
 }
@@ -17,6 +17,9 @@ brew_doctor(...)
 Defaults to \code{TRUE} for interactive sessions.}
   }}
 }
+\value{
+Logical value indicating whether or not problems were found
+}
 \description{
-\code{brew_doctor()} TODO
+\code{brew_doctor()} checks your system for potential problems
 }

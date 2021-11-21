@@ -1,6 +1,7 @@
 #' Install a formula or cask
 #'
-#' @description `brew_install()` installs a formula or cask
+#' @description `brew_install()` installs a formula or cask.
+#' For information about additional arguments, see `brew_help("install")`.
 #'
 #' @param package Name of package(s) (formula or cask)
 #' @param cask If `TRUE`, `package` refers to a cask. If `FALSE` (default),
@@ -20,6 +21,7 @@
 #'
 #' @examples
 #' \dontrun{
+#' # Install unixodbc
 #' brew_install("unixodbc")
 #' }
 brew_install <- function(package,
@@ -66,6 +68,7 @@ brew_install_formula <- function(package, ...) {
 #' @export
 #' @examples
 #' \dontrun{
+#' # Install RStudio cask
 #' brew_install_cask("rstudio")
 #' }
 brew_install_cask <- function(package, ...) {
@@ -81,6 +84,7 @@ brew_install_cask <- function(package, ...) {
 #' @export
 #' @examples
 #' \dontrun{
+#' # Reinstall unixodbc
 #' brew_reinstall("unixodbc")
 #' }
 brew_reinstall <- function(package, ...) {
@@ -93,6 +97,7 @@ brew_reinstall <- function(package, ...) {
 #' @export
 #' @examples
 #' \dontrun{
+#' # Uninstall unixodbc
 #' brew_uninstall("unixodbc")
 #' }
 brew_uninstall <- function(package, ...) {

@@ -55,7 +55,8 @@ A logical value indicating whether or not the installation was a
 success
 }
 \description{
-\code{brew_install()} installs a formula or cask
+\code{brew_install()} installs a formula or cask.
+For information about additional arguments, see \code{brew_help("install")}.
 
 \code{brew_reinstall()} uninstalls and then reinstalls a formula or
 cask using the same options it was originally installed with, plus any
@@ -65,6 +66,7 @@ appended options specific to a formula.
 }
 \examples{
 \dontrun{
+# Install unixodbc
 brew_install("unixodbc")
 }
 \dontrun{
@@ -72,12 +74,15 @@ brew_install("unixodbc")
 brew_install_formula("r")
 }
 \dontrun{
+# Install RStudio cask
 brew_install_cask("rstudio")
 }
 \dontrun{
+# Reinstall unixodbc
 brew_reinstall("unixodbc")
 }
 \dontrun{
+# Uninstall unixodbc
 brew_uninstall("unixodbc")
 }
 }

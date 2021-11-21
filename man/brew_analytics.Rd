@@ -34,6 +34,8 @@ Defaults to \code{TRUE} for interactive sessions.}
 Retrieve analytics data for a formula or cask
 }
 \examples{
+\dontrun{
 # Retrieve 90-day install data for unixodbc
 brew_analytics("unixodbc", days = 90)
+}
 }

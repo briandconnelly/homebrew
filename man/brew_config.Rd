@@ -2,7 +2,7 @@
 % Please edit documentation in R/brew_config.R
 \name{brew_config}
 \alias{brew_config}
-\title{Title}
+\title{Show Homebrew and System Configuration}
 \usage{
 brew_config()
 }
@@ -10,10 +10,11 @@ brew_config()
 A string containing the raw text output from \verb{brew config}
 }
 \description{
-Title
+\code{brew_config()} returns important information about your Homebrew
+installation and other related system information.
 }
 \examples{
 \dontrun{
-TODO
+brew_config()
 }
 }

@@ -35,7 +35,9 @@ process was killed and had no exit status.}
 }
 }
 \description{
-Run a homebrew command
+\code{brew_cmd()} runs a given Homebrew command.
+For more information about which additional arguments are supported for a
+command, see \code{\link[=brew_help]{brew_help()}}.
 }
 \examples{
 \dontrun{

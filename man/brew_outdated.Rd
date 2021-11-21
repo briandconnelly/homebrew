@@ -18,7 +18,7 @@ Defaults to \code{TRUE} for interactive sessions.}
   }}
 }
 \value{
-TODO
+A list of strings, one for each package that is outdated
 }
 \description{
 \code{brew_outdated()} returns a list of installed packages that have

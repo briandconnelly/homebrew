@@ -31,6 +31,8 @@ cask.
 System and package analytics can be retrieved with \code{\link{brew_analytics}}
 }
 \examples{
+\dontrun{
 # Get info about unixodbc package
 brew_info("unixodbc")
+}
 }
