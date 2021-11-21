@@ -13,5 +13,5 @@
 #' @examples
 #' has_homebrew()
 has_homebrew <- function() {
-  file.exists(Sys.which("brew"))
+  fs::file_exists(find_brew_command())
 }

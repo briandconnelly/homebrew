@@ -2,12 +2,10 @@ Package: homebrew
 Title: Install and Manage Packages using 'Homebrew'
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "Brian",
-           family = "Connelly",
-           role = c("aut", "cre"),
-           email = "bdc@bconnelly.net",
-	   comment = c(ORCID = "0000-0002-9948-0379"))
-Description: Manage packages on macOS and Linux machines using 'Homebrew' <https://brew.sh>.
+    person("Brian", "Connelly", , "bdc@bconnelly.net", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-9948-0379"))
+Description: Manage packages on macOS and Linux machines using 'Homebrew'
+    <https://brew.sh>.
 License: MIT + file LICENSE
 URL: https://github.com/briandconnelly/homebrew
 BugReports: https://github.com/briandconnelly/homebrew/issues
@@ -15,6 +13,7 @@ Imports:
     assertthat,
     cli,
     ellipsis,
+    fs,
     jsonlite,
     processx,
     rlang

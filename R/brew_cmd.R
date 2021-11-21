@@ -23,7 +23,7 @@
 #' }
 brew_cmd <- function(cmd,
                      args = character(),
-                     brew_cmd = Sys.which("brew"),
+                     brew_cmd = find_brew_command(),
                      echo = rlang::is_interactive(),
                      ...) {
   check_brew_command(brew_cmd)
@@ -47,11 +47,17 @@ brew_cmd <- function(cmd,
   )
 }
 
+find_brew_command <- function() {
+  Sys.which("brew")
+}
+
 check_brew_command <- function(brew_cmd) {
   if (nchar(brew_cmd) == 0) {
     cli::cli_abort("Could not find {.code brew} command")
-  } else if (!file.exists(brew_cmd)) {
+  } else if (!fs::file_exists(brew_cmd)) {
     cli::cli_abort("Could not find {.code brew} command: {.path {brew_cmd}} does not exist")
+  } else if (!fs::file_access(brew_cmd, mode = "execute")) {
+    cli::cli_alert_warning("{.code brew} command {.path {brew_cmd}} is not executable")
   }
 }
 

@@ -7,7 +7,7 @@
 brew_cmd(
   cmd,
   args = character(),
-  brew_cmd = Sys.which("brew"),
+  brew_cmd = find_brew_command(),
   echo = rlang::is_interactive(),
   ...
 )
