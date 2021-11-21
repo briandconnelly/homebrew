@@ -11,7 +11,9 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' brew_list()
+#' }
 brew_list <- function(formulae = TRUE, casks = TRUE, ...) {
   checkmate::assert_flag(formulae)
   checkmate::assert_flag(casks)
@@ -73,9 +75,11 @@ brew_list <- function(formulae = TRUE, casks = TRUE, ...) {
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' # Check whether or not unixodbc is installed
 #' is_installed("unixodbc")
-is_installed <- function(package, formulae = TRUE, casks = TRUE, ...) {
+#' }
+is_installed <- function(package, formulae = TRUE, casks = TRUE) {
   checkmate::assert_character(
     package,
     min.chars = 1, min.len = 1, any.missing = FALSE

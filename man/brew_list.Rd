@@ -7,7 +7,7 @@
 \usage{
 brew_list(formulae = TRUE, casks = TRUE, ...)
 
-is_installed(package, formulae = TRUE, casks = TRUE, ...)
+is_installed(package, formulae = TRUE, casks = TRUE)
 }
 \arguments{
 \item{formulae}{Include installed formulae (default: \code{TRUE})}
@@ -39,7 +39,11 @@ A logical value indicating whether or not the package is installed
 \code{is_installed()} checks if a given package is installed
 }
 \examples{
+\dontrun{
 brew_list()
+}
+\dontrun{
 # Check whether or not unixodbc is installed
 is_installed("unixodbc")
+}
 }
