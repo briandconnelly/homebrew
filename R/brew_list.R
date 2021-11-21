@@ -87,5 +87,5 @@ is_installed <- function(package, formulae = TRUE, casks = TRUE) {
   checkmate::assert_flag(formulae)
   checkmate::assert_flag(casks)
 
-  package %in% brew_list(formulae = formulae, casks = casks, ...)$name
+  package %in% brew_list(formulae = formulae, casks = casks)$name
 }
