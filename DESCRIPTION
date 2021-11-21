@@ -10,7 +10,7 @@ License: MIT + file LICENSE
 URL: https://github.com/briandconnelly/homebrew
 BugReports: https://github.com/briandconnelly/homebrew/issues
 Imports: 
-    assertthat,
+    checkmate,
     cli,
     ellipsis,
     fs,

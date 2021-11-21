@@ -11,10 +11,9 @@
 #' # Get info about unixodbc package
 #' brew_info("unixodbc")
 brew_info <- function(package, ...) {
-  assertthat::assert_that(
-    is.vector(package),
-    is.character(package),
-    all(nchar(package) > 0)
+  checkmate::assert_character(
+    package,
+    min.chars = 1, min.len = 1, any.missing = FALSE
   )
 
   jsonlite::parse_json(

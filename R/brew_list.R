@@ -12,12 +12,8 @@
 #' @examples
 #' brew_list()
 brew_list <- function(formulae = TRUE, casks = TRUE, ...) {
-  assertthat::assert_that(
-    assertthat::is.flag(formulae),
-    assertthat::noNA(formulae),
-    assertthat::is.flag(casks),
-    assertthat::noNA(casks)
-  )
+  checkmate::assert_flag(formulae)
+  checkmate::assert_flag(casks)
 
   if (formulae) {
     formulae <- brew_cmd(
@@ -79,15 +75,12 @@ brew_list <- function(formulae = TRUE, casks = TRUE, ...) {
 #' # Check whether or not unixodbc is installed
 #' is_installed("unixodbc")
 is_installed <- function(package, formulae = TRUE, casks = TRUE, ...) {
-  assertthat::assert_that(
-    is.character(package),
-    all(nchar(package) > 0),
-    length(package) > 0,
-    assertthat::is.flag(formulae),
-    assertthat::noNA(formulae),
-    assertthat::is.flag(casks),
-    assertthat::noNA(casks)
+  checkmate::assert_character(
+    package,
+    min.chars = 1, min.len = 1, any.missing = FALSE
   )
+  checkmate::assert_flag(formulae)
+  checkmate::assert_flag(casks)
 
   package %in% brew_list(formulae = formulae, casks = casks, ...)$name
 }

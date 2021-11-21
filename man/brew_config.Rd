@@ -7,7 +7,7 @@
 brew_config()
 }
 \value{
-
+A string containing the raw text output from \verb{brew config}
 }
 \description{
 Title

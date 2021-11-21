@@ -1,6 +1,6 @@
 #' Title
 #'
-#' @return
+#' @return A string containing the raw text output from `brew config`
 #' @export
 #'
 #' @examples

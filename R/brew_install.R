@@ -28,19 +28,14 @@ brew_install <- function(package,
                          only_dependencies = FALSE,
                          keep_tmp = FALSE,
                          ...) {
-  assertthat::assert_that(
-    is.character(package),
-    all(nchar(package) > 0),
-    length(package) > 0,
-    assertthat::is.flag(cask),
-    assertthat::noNA(cask),
-    assertthat::is.flag(force),
-    assertthat::noNA(force),
-    assertthat::is.flag(only_dependencies),
-    assertthat::noNA(only_dependencies),
-    assertthat::is.flag(keep_tmp),
-    assertthat::noNA(keep_tmp)
+  checkmate::assert_character(
+    package,
+    min.chars = 1, min.len = 1, any.missing = FALSE
   )
+  checkmate::assert_flag(cask)
+  checkmate::assert_flag(force)
+  checkmate::assert_flag(only_dependencies)
+  checkmate::assert_flag(keep_tmp)
 
   args <- c()
 

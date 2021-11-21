@@ -26,18 +26,13 @@ brew_cmd <- function(cmd,
                      brew_cmd = find_brew_command(),
                      echo = rlang::is_interactive(),
                      ...) {
+  checkmate::assert_string(cmd, na.ok = FALSE)
+  checkmate::assert_character(args, min.len = 0)
+  checkmate::assert_file(brew_cmd, access = "x")
+  checkmate::assert_flag(echo)
+
   check_brew_command(brew_cmd)
   ellipsis::check_dots_used()
-
-  assertthat::assert_that(
-    assertthat::is.string(cmd),
-    assertthat::noNA(cmd),
-    is.vector(args),
-    is.character(args),
-    assertthat::is.string(brew_cmd),
-    assertthat::is.flag(echo),
-    assertthat::noNA(echo)
-  )
 
   processx::run(
     command = brew_cmd,
@@ -74,9 +69,4 @@ homebrew_commands <- function() {
 
 is_homebrew_command <- function(cmd) {
   cmd %in% homebrew_commands()
-}
-
-
-assertthat::on_failure(is_homebrew_command) <- function(call, env) {
-  paste(deparse(call[[2]]), "is not a valud Homebrew command")
 }

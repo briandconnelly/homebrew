@@ -21,14 +21,16 @@ brew_analytics <- function(package,
                            ),
                            ...) {
   category <- rlang::arg_match(category)
-  assertthat::assert_that(
-    is.character(package),
-    all(nchar(package) > 0),
-    length(package) > 0,
-    assertthat::is.number(days),
-    days %in% c(30, 90, 365),
-    assertthat::is.string(category),
-    category %in% c("install", "install-on-request", "build-error")
+
+  checkmate::assert_character(
+    package,
+    min.chars = 1, min.len = 1, any.missing = FALSE
+  )
+  checkmate::assert_integerish(days)
+  checkmate::assert_choice(days, choices = c(30, 90, 365))
+  checkmate::assert_choice(
+    category,
+    choices = c("install", "install-on-request", "build-error")
   )
 
   result <- brew_cmd(
