@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • homebrew</title>
+<title>Get help — brew_help • homebrew</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,9 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Get help — brew_help" />
+<meta property="og:description" content="brew_help() can be used to get information about Homebrew or
+the available commands" />
 
 
 
@@ -58,7 +60,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -105,120 +107,47 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Get help</h1>
+    <small class="dont-index">Source: <a href='https://github.com/briandconnelly/homebrew/blob/master/R/commands.R'><code>R/commands.R</code></a></small>
+    <div class="hidden name"><code>brew_help.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p><code>brew_help()</code> can be used to get information about Homebrew or
+the available commands</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>brew_help</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span></pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="brew_analytics.html">brew_analytics()</a></code> </p>
-        </td>
-        <td><p>Retrieve analytics data for a formula or cask</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="brew_cleanup.html">brew_cleanup()</a></code> </p>
-        </td>
-        <td><p>Clean up Homebrew environment</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="brew_cmd.html">brew_cmd()</a></code> </p>
-        </td>
-        <td><p>Run a homebrew command</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="brew_config.html">brew_config()</a></code> </p>
-        </td>
-        <td><p>Show Homebrew and System Configuration</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="brew_doctor.html">brew_doctor()</a></code> </p>
-        </td>
-        <td><p>Check for potential problems</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="brew_help.html">brew_help()</a></code> </p>
-        </td>
-        <td><p>Get help</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="brew_info.html">brew_info()</a></code> </p>
-        </td>
-        <td><p>Display information about a formula or cask</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="brew_install.html">brew_install()</a></code> <code><a href="brew_install.html">brew_install_formula()</a></code> <code><a href="brew_install.html">brew_install_cask()</a></code> <code><a href="brew_install.html">brew_reinstall()</a></code> <code><a href="brew_install.html">brew_uninstall()</a></code> </p>
-        </td>
-        <td><p>Install a formula or cask</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="brew_list.html">brew_list()</a></code> <code><a href="brew_list.html">is_installed()</a></code> </p>
-        </td>
-        <td><p>Check installed formulae and casks</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="brew_outdated.html">brew_outdated()</a></code> </p>
-        </td>
-        <td><p>List outdated packages</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="brew_update.html">brew_update()</a></code> </p>
-        </td>
-        <td><p>Update Homebrew environment and formulae</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="brew_upgrade.html">brew_upgrade()</a></code> </p>
-        </td>
-        <td><p>Upgrade outdated packages</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="brew_version.html">brew_version()</a></code> </p>
-        </td>
-        <td><p>Get Homebrew version information</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="has_homebrew.html">has_homebrew()</a></code> </p>
-        </td>
-        <td><p>Check whether Homebrew is installed</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>...</th>
+      <td><p>Arguments passed on to <code><a href='brew_cmd.html'>brew_cmd</a></code></p><dl>
+    <dt><code>cmd</code></dt><dd><p>The command to run (e.g., <code>install</code>)</p></dd>
+    <dt><code>args</code></dt><dd><p>Additional arguments for the command</p></dd>
+    <dt><code>brew_cmd</code></dt><dd><p>Optional: Location of <code>brew</code> command.</p></dd>
+    <dt><code>echo</code></dt><dd><p>Whether to print output and error messages to the screen.
+Defaults to <code>TRUE</code> for interactive sessions.</p></dd>
+  
+</dl></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A string</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'><span class='co'># Get help about the 'install' command</span></span>
+<span class='r-in'><span class='fu'>brew_help</span><span class='op'>(</span><span class='st'>"install"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+</pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
