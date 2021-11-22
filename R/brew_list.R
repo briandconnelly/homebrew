@@ -5,7 +5,7 @@
 #' @param formulae Include installed formulae (default: `TRUE`)
 #' @param casks Include installed casks (default: `TRUE`)
 #' @inheritDotParams brew_cmd
-#' @return A data frame (or tibble, if installed) containing the `name` and
+#' @return A data frame containing the `name` and
 #' `version` of each installed package and how it was installed (i.e., via
 #' formula or cask).
 #' @export
@@ -61,7 +61,7 @@ brew_list <- function(formulae = TRUE, casks = TRUE, ...) {
   everything <- rbind(formulae_df, casks_df)
   everything$type <- factor(everything$type, levels = c("formula", "cask"))
 
-  ifelse(is_installed("tibble"), tibble::as_tibble(everything), everything)
+  everything
 }
 
 

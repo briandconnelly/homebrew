@@ -27,7 +27,7 @@ Defaults to \code{TRUE} for interactive sessions.}
 \item{package}{Name of formula or cask}
 }
 \value{
-A data frame (or tibble, if installed) containing the \code{name} and
+A data frame containing the \code{name} and
 \code{version} of each installed package and how it was installed (i.e., via
 formula or cask).
 
