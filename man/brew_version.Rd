@@ -37,5 +37,7 @@ Version information for installed packages can be retrieved with
 \code{\link[=brew_list]{brew_list()}}
 }
 \examples{
+\dontrun{
 brew_version()
+}
 }

@@ -19,7 +19,9 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' brew_version()
+#' }
 brew_version <- function(...) {
   output <- brew_cmd(cmd = "--version", echo = FALSE, ...)$stdout
   versions <- strsplit(output, "\n")[[1]]
