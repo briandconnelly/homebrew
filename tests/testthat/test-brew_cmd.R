@@ -43,7 +43,8 @@ test_that("brew_cmd validates arguments correctly", {
 
 test_that("brew_cmd returns expected fields", {
   skip_on_os("windows")
-  skip_if_not(has_homebrew())
+  skip_if_not(has_homebrew(), message = "Homebrew not installed")
+
   valid_result <- valid_brew_cmd()
   expect_named(valid_result)
   expect_equal(names(valid_result), c("status", "stdout", "stderr", "timeout"))
@@ -52,7 +53,7 @@ test_that("brew_cmd returns expected fields", {
 
 test_that("command helper functions work", {
   skip_on_os("windows")
-  skip_if_not(has_homebrew())
+  skip_if_not(has_homebrew(), message = "Homebrew not installed")
 
   expect_true(length(homebrew_commands()) > 0)
 

@@ -9,7 +9,7 @@ test_that("brew_list validates arguments correctly", {
 
 test_that("brew_list returns the expected tibble", {
   skip_on_os("windows")
-  skip_if_not(has_homebrew())
+  skip_if_not(has_homebrew(), message = "Homebrew not installed")
 
   valid_result <- brew_list(formulae = TRUE, casks = TRUE)
   expect_true(is.data.frame(valid_result))
@@ -78,7 +78,7 @@ test_that("is_installed validates arguments correctly", {
 
 test_that("is_installed returns a logical", {
   skip_on_os("windows")
-  skip_if_not(has_homebrew())
+  skip_if_not(has_homebrew(), message = "Homebrew not installed")
 
   expect_true(is.logical(valid_is_installed()))
   expect_true(is.logical(valid_is_installed(c("pwgen", "unixodbc"))))

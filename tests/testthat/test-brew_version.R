@@ -6,7 +6,7 @@ test_that("brew_version catches invalid args", {
 
 test_that("brew_version works as expected", {
   skip_on_os("windows")
-  skip_if_not(has_homebrew())
+  skip_if_not(has_homebrew(), message = "Homebrew not installed")
 
   # Returns a named list
   valid_result <- brew_version()

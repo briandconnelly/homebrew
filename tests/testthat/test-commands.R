@@ -8,7 +8,7 @@ test_that("input validation for commands", {
 
 test_that("brew_outdated returns a list", {
   skip_on_os("windows")
-  skip_if_not(has_homebrew())
+  skip_if_not(has_homebrew(), message = "Homebrew not installed")
 
   valid_result <- brew_outdated()
   expect_true(is.character(valid_result))

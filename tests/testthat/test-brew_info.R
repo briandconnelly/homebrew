@@ -8,7 +8,7 @@ test_that("input validation", {
 
 test_that("output", {
   skip_on_os("windows")
-  skip_if_not(has_homebrew())
+  skip_if_not(has_homebrew(), message = "Homebrew not installed")
 
   valid_result1 <- brew_info(package = "unixodbc")
   expect_true(is.list(valid_result1))
