@@ -13,5 +13,9 @@
 #' @examples
 #' has_homebrew()
 has_homebrew <- function() {
-  unname(fs::file_exists(find_brew_command()))
+  if (fs::file_exists(find_brew_command())) {
+    brew_cmd("help", args = "doctor", stdout = NULL, stderr = NULL, error_on_status = FALSE)$status == 0
+  } else {
+    FALSE
+  }
 }
