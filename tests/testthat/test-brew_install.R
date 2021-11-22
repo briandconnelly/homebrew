@@ -43,7 +43,6 @@ test_that("input validation", {
   expect_error(valid_brew_install(unknown_arg = 21))
   expect_error(valid_brew_install(pakcage = "pwgen"))
 
-
   expect_error(brew_install_formula(package = ""))
   expect_error(brew_install_cask(package = ""))
   expect_error(brew_reinstall(package = ""))

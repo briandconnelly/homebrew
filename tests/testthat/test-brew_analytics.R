@@ -32,6 +32,8 @@ test_that("input validation", {
 })
 
 test_that("expected output", {
+  skip_on_os("windows")
+  skip_if_not(has_homebrew())
   expect_invisible(valid_brew_analytics())
   expect_true(is.logical(valid_brew_analytics()))
 })

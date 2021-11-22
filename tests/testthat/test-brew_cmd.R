@@ -13,10 +13,6 @@ valid_brew_cmd <- function(cmd = "info",
 }
 
 test_that("brew_cmd validates arguments correctly", {
-  valid_result <- valid_brew_cmd()
-  expect_named(valid_result)
-  expect_equal(names(valid_result), c("status", "stdout", "stderr", "timeout"))
-
   expect_error(valid_brew_cmd(cmd = NULL))
   expect_error(valid_brew_cmd(cmd = NA))
   expect_error(valid_brew_cmd(cmd = 12))
@@ -45,8 +41,19 @@ test_that("brew_cmd validates arguments correctly", {
   expect_error(valid_brew_cmd(unknown_arg = TRUE))
 })
 
+test_that("brew_cmd returns expected fields", {
+  skip_on_os("windows")
+  skip_if_not(has_homebrew())
+  valid_result <- valid_brew_cmd()
+  expect_named(valid_result)
+  expect_equal(names(valid_result), c("status", "stdout", "stderr", "timeout"))
+})
+
 
 test_that("command helper functions work", {
+  skip_on_os("windows")
+  skip_if_not(has_homebrew())
+
   expect_true(length(homebrew_commands()) > 0)
 
   for (cmd in c("info", "install", "uninstall", "list", "doctor")) {
