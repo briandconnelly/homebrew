@@ -30,6 +30,7 @@ brew_cmd <- function(cmd,
                      brew_cmd = find_brew_command(),
                      echo = is_interactive(),
                      ...) {
+  checkmate::assert_os(c("mac", "linux"))
   checkmate::assert_string(cmd, na.ok = FALSE)
   checkmate::assert_character(args, min.len = 0)
   checkmate::assert_file(brew_cmd, access = "x")
